@@ -67,7 +67,9 @@ public class UserDate {
 			sb.append(this.days).append(" D ");
 		}
 		
-		sb.append(String.format("%02d", hours % 12)).append(":").append(String.format("%02d", minutes)).append(" ").append(hours >=12 ? "PM": "AM");
+		String hoursPart = hours == 12 ? String.format("%02d", hours) : String.format("%02d", hours % 12);
+		
+		sb.append(hoursPart).append(":").append(String.format("%02d", minutes)).append(" ").append(hours >=12 ? "PM": "AM");
 		return sb.toString();
 	}
 	

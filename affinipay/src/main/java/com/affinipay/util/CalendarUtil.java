@@ -22,7 +22,7 @@ public class CalendarUtil {
 		
 		hours = meridies.equals("AM") && hours.equals("12")? "0" : hours;
 		
-		Long totalMinutes = Integer.valueOf(hours) * Constants.MIN_IN_HOUR + Integer.valueOf(minutes) + (meridies.equals("PM") ? Constants.MIN_IN_HALF_DAY : 0L);
+		Long totalMinutes = Integer.valueOf(hours) * Constants.MIN_IN_HOUR + Integer.valueOf(minutes) + (!hours.equals("12") && meridies.equals("PM") ? Constants.MIN_IN_HALF_DAY : 0L);
 		
 		return new UserDate(totalMinutes);
 	}
